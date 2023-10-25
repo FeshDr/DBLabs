@@ -9,72 +9,72 @@
 6. Создание заказов
 7. Создание отзывов на услуги
 8. Панель администратора :
-  1. Изменение статуса заказа
-  2. Создание и изменение услуг
-  3. Создание и изменение запчастей
+  8.1. Изменение статуса заказа
+  8.2. Создание и изменение услуг
+  8.3. Создание и изменение запчастей
 
 # Описание таблицы
 
 # ServiceType - тип услуги
 
-name - varchar(30) NOT NULL
+1. name - varchar(30) NOT NULL
 
 # SparePartType - тип запчасти
 
-name - varchar(30) NOT NULL
+1. name - varchar(30) NOT NULL
 
 # User - пользователь
 
-username - varchar(30) NOT NULL, UNIQUE
-email - varchar(60) NOT NULL, must be valid email, UNIQUE
-firstname - varchar(50) NOT NULL
-lastname - varchar(50) NOT NULL
-password - varchar(200) NOT NULL
+1. username - varchar(30) NOT NULL, UNIQUE
+2. email - varchar(60) NOT NULL, must be valid email, UNIQUE
+3. firstname - varchar(50) NOT NULL
+4. lastname - varchar(50) NOT NULL
+5. password - varchar(200) NOT NULL
 
 # Employee - сотрудник
 
-user - OtO(User)
-photo - varchar(50) NOT NULL
+1. user - OtO(User)
+2. photo - varchar(50) NOT NULL
 
 # SparePart - запасные части для выполнения услуги
 
-type - OtM(SparePartType)
-name - varchar(30) NOT NULL, UNIQUE
-price - float NOT NULL
+1. type - OtM(SparePartType)
+2. name - varchar(30) NOT NULL, UNIQUE
+3. price - float NOT NULL
 
 # Service - услуга оказываемая клиентом
 
-type - OtM(ServiceType)
-name - varchar(30) NOT NULL, UNIQUE
-description - varchar(200)
-work_price - float NOT NULL
+1. type - OtM(ServiceType)
+2. name - varchar(30) NOT NULL, UNIQUE
+3. description - varchar(200)
+4. work_price - float NOT NULL
 
 # Device - устройство пользователя
 
-name - varchar(30) NOT NULL
-owner - OtO(User)
+1. name - varchar(30) NOT NULL
+2. owner - OtO(User)
 
 # Task - задача
 
-master - OtM(Employee)
-service - OtM (Service)
-device - OtM(Device)
-sp - OtM(SparePArt)
+1. master - OtM(Employee)
+2. service - OtM (Service)
+3. device - OtM(Device)
+4. sp - OtM(SparePArt)
 
 # Order - Заказ
 
-tasks - OtM(Task)
-client - OtM(User)
-contractDate - Date
-deadline - Date
+1. tasks - OtM(Task)
+2. client - OtM(User)
+3. contractDate - Date
+4. deadline - Date
 
 # Review - Отзыв на услугу
 
-text = varchar(2000)
-author = OtM(User)
-date = Date
-rate = int
-service = MtM(Service)
+1. text = varchar(2000)
+2. author = OtM(User)
+3. date = Date
+4. rate = int
+5. service = MtM(Service)
 
 
 
