@@ -74,7 +74,7 @@
 2. author = OtM(User)
 3. date = Date
 4. rate = int
-5. service = MtM(Service)
+5. service = OtM(Service)
 
 
 
